@@ -6,14 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
 
 function Component() {
-  const { contract, isLoading } = useContract("0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0");
+  const { contract, isLoading } = useContract("0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0");
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThirdwebProvider 
-      activeChain="goerli" 
+      activeChain="binance" 
       clientId="0cde6a874bb767cdcbf735bc99865f86"
     >
     <App />

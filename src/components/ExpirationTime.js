@@ -6,12 +6,12 @@ import PurchaseToken from "./PurchaseToken";
 const ExpirationTime = () => {
   const address = useAddress();
   const { contract } = useContract(
-    "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0"
+    "0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0"
   );
   const { data, isLoading } = useContractRead(
     contract,
     "keyExpirationTimestampFor",
-    [5]
+    [1]
   );
   const expTime = data?.toString();
   return (

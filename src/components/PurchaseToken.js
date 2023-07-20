@@ -4,14 +4,14 @@ import { useAddress } from "@thirdweb-dev/react";
 
 const PurchaseToken = () => {
     const address = useAddress();    
-    const { contract } = useContract("0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0");
+    const { contract } = useContract("0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0");
 
     const { mutateAsync: purchase, isLoading } = useContractWrite(contract, "purchase")
 
     const _values = ["50000000000000000000"]
     const _recipients = [address]
-    const _referrers = ["0xCfAD1AB2149104eB1524552Ef54E0c64552ad99e"]
-    const _keyManagers = ["0xCfAD1AB2149104eB1524552Ef54E0c64552ad99e"]
+    const _referrers = ["0xa19E1Cf321F47ED1feAe8C4C320FEE91984ccD62"]
+    const _keyManagers = ["0xa19E1Cf321F47ED1feAe8C4C320FEE91984ccD62"]
     const _data = [0]
 
     const call = async () => {
