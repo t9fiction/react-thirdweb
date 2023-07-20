@@ -10,7 +10,7 @@ const BalanceOf = () => {
     <div className='text-center flex justify-center items-center'>
     {
         !isLoading ?
-        <div className='flex flex-row'>Membership Status : {data.toString()}</div>
+        <div className='flex flex-row'>Membership Status : {data !== undefined && data.toString()}</div>
         : <p>Loading....</p>
     }
     </div>
