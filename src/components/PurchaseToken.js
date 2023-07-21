@@ -24,11 +24,11 @@ const PurchaseToken = () => {
       }
 
   return (
-    <div>
-        <h2>
-        PurchaseToken
+    <div className='py-6'>
+        <h2 className='font-bold text-lg'>
+        PurchaseToken Function
         </h2>
-        <button onClick={()=>call()} className='bg-zinc-500 rounded-md py-2 px-4'>
+        <button onClick={()=>call()} className='bg-zinc-500 rounded-md py-2 px-4 hover:text-white hover:bg-black ease-in-out duration-300'>
             Purchase Membership
         </button>
         </div>
