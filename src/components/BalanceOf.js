@@ -7,7 +7,10 @@ const BalanceOf = () => {
     const { contract } = useContract("0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0");
     const { data, isLoading } = useContractRead(contract, "balanceOf", [address])
   return (
-    <div className='text-center flex justify-center items-center'>
+    <div className='text-center flex flex-col justify-center items-center'>
+      <h1 className='font-bold text-xl py-2'>
+        Membership Function
+      </h1>
     {
         !isLoading ?
         <div className='flex flex-row'>Membership Status : {data !== undefined && data.toString()}</div>
