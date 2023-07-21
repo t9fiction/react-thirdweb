@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
-import PurchaseToken from "./PurchaseToken";
 
 const ExpirationTime = () => {
   const address = useAddress();
@@ -26,17 +25,14 @@ const ExpirationTime = () => {
       <h2 className="text-xl font-bold">Token Expiration Time</h2>{" "}
       <h3>Enter TokenID : </h3>
       <input onChange={handleChange} />
-      {!isLoading ? (
+      {!isLoading && (
         expTime !== "0" ? (
           <p>ExpirationTime : {expTime} </p>
         ) : (
           <>
-            <p>No Token/Membership found</p>
-            <PurchaseToken />
+            <p>TokenId doesnt exist yet</p>
           </>
         )
-      ) : (
-        <p>Loading...</p>
       )}
     </div>
   );
