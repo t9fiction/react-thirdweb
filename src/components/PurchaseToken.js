@@ -11,7 +11,7 @@ const PurchaseToken = () => {
     const _values = ["50000000000000000000"]
     const _recipients = [address]
     const _referrers = ["0xa19E1Cf321F47ED1feAe8C4C320FEE91984ccD62"]
-    const _keyManagers = ["0xa19E1Cf321F47ED1feAe8C4C320FEE91984ccD62"]
+    const _keyManagers = ["0x1401119b17EFb739D3Ed0E37599A6144802F3cdC"]
     const _data = [0]
 
     const call = async () => {
