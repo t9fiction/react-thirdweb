@@ -24,7 +24,7 @@ const ExpirationTime = () => {
   return (
     <div className="py-6">
       <h2 className="text-xl font-bold">Token Expiration Time</h2>{" "}
-      <h3>TokenID : </h3>
+      <h3>Enter TokenID : </h3>
       <input onChange={handleChange} />
       {!isLoading ? (
         expTime !== "0" ? (
