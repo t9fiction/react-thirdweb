@@ -19,7 +19,7 @@ const PurchaseToken = () => {
           const data = await purchase({ args: [_values, _recipients, _referrers, _keyManagers, _data] });
           console.info("contract call successs", data);
         } catch (err) {
-          console.error("contract call failure", err);
+          alert("contract call failure", err);
         }
       }
 
