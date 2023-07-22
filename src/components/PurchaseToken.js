@@ -5,6 +5,7 @@ import Paywall from "@unlock-protocol/paywall";
 import networks from "@unlock-protocol/networks";
 import { paywallConfig } from "../configurations/config";
 
+
 const PurchaseToken = () => {
   const address = useAddress();
   const { contract } = useContract(
@@ -12,7 +13,8 @@ const PurchaseToken = () => {
   );
 
   const signer = useSigner();
-  console.log("signer",signer.provider)
+  const provider = signer.provider
+
   const { mutateAsync: purchase, isLoading } = useContractWrite(
     contract,
     "purchase"
@@ -36,8 +38,11 @@ const PurchaseToken = () => {
   };
 
   const checkOut = async () => {
-    const paywall = new Paywall(paywallConfig, networks, signer);
+    
+    console.log("provider",provider)
+    const paywall = new Paywall(paywallConfig, networks, provider);
     const result =  await paywall.loadCheckoutModal(paywallConfig);
+    console.log(result,"result")
   };
 
   return (
