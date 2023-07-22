@@ -3,6 +3,7 @@ import ExpirationTime from "./ExpirationTime";
 import BalanceOf from "./BalanceOf";
 import { useAddress } from "@thirdweb-dev/react";
 import { useChainId } from "@thirdweb-dev/react";
+import TokenGate from "./TokenGate";
 
 const MainPage = () => {
   const address = useAddress();
@@ -12,10 +13,11 @@ const MainPage = () => {
     <div className="bg-slate-300 h-screen py-24 px-12">
       {address ? (
         chainId === 56 ?        
-        <>
+        <TokenGate>
+
           <BalanceOf />
           <ExpirationTime />
-        </> 
+        </TokenGate>
         :
         <p className="font-semibold text-lg">
           Pleae select Binance Chain and then try again
