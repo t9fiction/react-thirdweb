@@ -7,7 +7,7 @@ const ExpirationTime = () => {
   const address = useAddress();
   const [tokenId, setTokenId] = useState();
   const { contract } = useContract(
-    "0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0"
+    "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0"
   );
   const { data, isLoading } = useContractRead(
     contract,
@@ -27,6 +27,9 @@ const ExpirationTime = () => {
     console.log(isTime,"isTime")
     if(isTime === "Jan 01 1970"){
       setExpTime("Not a Valid Token")
+    }
+    if(isTime === "lid Date"){
+      setExpTime("Enter a Token")
     }
   }, [data])
   

@@ -11,14 +11,14 @@ const MainPage = () => {
   return (
     <div className="bg-slate-300 h-screen py-24 px-12">
       {address ? (
-        chainId === 56 ? (
+        chainId === 5 ? (
           <>
             <BalanceOf />
             <ExpirationTime />
           </>
         ) : (
           <p className="font-semibold text-lg">
-            Pleae select Binance Chain and then try again
+            Pleae select Goerli Chain and then try again
           </p>
         )
       ) : (
