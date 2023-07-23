@@ -3,17 +3,15 @@ import { useContract, useContractWrite } from "@thirdweb-dev/react";
 import { useAddress, useSigner } from "@thirdweb-dev/react";
 import Paywall from "@unlock-protocol/paywall";
 import networks from "@unlock-protocol/networks";
-import { paywallConfig } from "../configurations/config";
-
+import { goerliAddress, paywallConfig } from "../configurations/config";
 
 const PurchaseToken = () => {
   const address = useAddress();
-  const { contract } = useContract(
-    "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0"
-  );
+  const { contract } = useContract(goerliAddress);
 
   const signer = useSigner();
-  const provider = signer.provider
+  const provider = signer.provider;
+  console.log(provider, "provider");
 
   const { mutateAsync: purchase, isLoading } = useContractWrite(
     contract,
@@ -22,7 +20,7 @@ const PurchaseToken = () => {
 
   const _values = ["50000000000000000000"];
   const _recipients = [address];
-  const _referrers = ["0xa19E1Cf321F47ED1feAe8C4C320FEE91984ccD62"];
+  const _referrers = [address];
   const _keyManagers = [address];
   const _data = [0];
 
@@ -31,18 +29,20 @@ const PurchaseToken = () => {
       const data = await purchase({
         args: [_values, _recipients, _referrers, _keyManagers, _data],
       });
-      console.info("contract call successs", data);
+      if (data) {
+        // Display the message with the received data
+        alert("Membership Purchased");
+      }
     } catch (err) {
       alert("contract call failure", err);
     }
   };
 
   const checkOut = async () => {
-    
-    console.log("provider",provider)
-    const paywall = new Paywall(paywallConfig, networks, signer);
-    const result =  await paywall.loadCheckoutModal(paywallConfig);
-    console.log(result,"result")
+    // const provider = await signer.provider;
+    const paywall = new Paywall(paywallConfig, networks, provider);
+    const result = await paywall?.loadCheckoutModal(paywallConfig);
+    console.log(result, "result");
   };
 
   return (

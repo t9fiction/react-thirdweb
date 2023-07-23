@@ -4,7 +4,6 @@ import { useAddress } from "@thirdweb-dev/react";
 
 const Navbar = () => {
   const address = useAddress();
-  console.log("address",address)
   
   return (
     <div className='flex flex-row justify-between h-16 bg-slate-400 items-center px-12'>

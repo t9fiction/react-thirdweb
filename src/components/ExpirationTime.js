@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
+import { goerliAddress } from "../configurations/config";
 
 const ExpirationTime = () => {
   const [expTime, setExpTime] = useState();
   const address = useAddress();
   const [tokenId, setTokenId] = useState();
-  const { contract } = useContract(
-    "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0"
-  );
+  const { contract } = useContract(goerliAddress);
   const { data, isLoading } = useContractRead(
     contract,
     "keyExpirationTimestampFor",
@@ -17,22 +16,22 @@ const ExpirationTime = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    let value = e.target.value;
-    setTokenId(value);
+    let inputValue = e.target.value;
+    console.log(inputValue, "inputValue");
+    setTokenId(inputValue);
   };
 
   useEffect(() => {
     const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
-    setExpTime(isTime)
-    console.log(isTime,"isTime")
-    if(isTime === "Jan 01 1970"){
-      setExpTime("Not a Valid Token")
+    setExpTime(isTime);
+    console.log(isTime, "isTime");
+    if (isTime === "Jan 01 1970") {
+      setExpTime("Not a Valid Token");
     }
-    if(isTime === "lid Date"){
-      setExpTime("Enter a Token")
+    if (isTime === "lid Date") {
+      setExpTime("Enter a Token");
     }
-  }, [data])
-  
+  }, [data]);
 
   // const expTime = data?.toString();
   return (

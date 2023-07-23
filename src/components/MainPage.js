@@ -7,7 +7,6 @@ import { useChainId } from "@thirdweb-dev/react";
 const MainPage = () => {
   const address = useAddress();
   const chainId = useChainId();
-  console.log("chainID : ", chainId);
   return (
     <div className="bg-slate-300 h-screen py-24 px-12">
       {address ? (
@@ -18,7 +17,7 @@ const MainPage = () => {
           </>
         ) : (
           <p className="font-semibold text-lg">
-            Pleae select Goerli Chain and then try again
+            Pleae select Binance Chain and then try again
           </p>
         )
       ) : (
