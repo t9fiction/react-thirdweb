@@ -17,7 +17,7 @@ const MainPage = () => {
           </>
         ) : (
           <p className="font-semibold text-lg">
-            Pleae select Binance Chain and then try again
+            Pleae select Goerli Chain and then try again
           </p>
         )
       ) : (

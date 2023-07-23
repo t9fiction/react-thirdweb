@@ -3,13 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThirdwebProvider, useContract, useSigner } from "@thirdweb-dev/react";
+import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
 import { goerliAddress } from "./configurations/config";
 
 function Component() {
   const { contract, isLoading } = useContract(goerliAddress);
-  const signer = useSigner();
-  const provider = signer?.provider;
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
