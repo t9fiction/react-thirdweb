@@ -10,8 +10,8 @@ const PurchaseToken = () => {
   const { contract } = useContract(goerliAddress);
 
   const signer = useSigner();
-  const provider = signer.provider;
-  console.log(provider, "provider");
+  // const provider = signer.provider;
+  // console.log(provider, "provider");
 
   const { mutateAsync: purchase, isLoading } = useContractWrite(
     contract,
@@ -39,8 +39,8 @@ const PurchaseToken = () => {
   };
 
   const checkOut = async () => {
-    // const provider = await signer.provider;
-    const paywall = new Paywall(paywallConfig, networks, provider);
+    const provider = await signer.provider;
+    const paywall = new Paywall(paywallConfig, networks, signer);
     const result = await paywall?.loadCheckoutModal(paywallConfig);
     console.log(result, "result");
   };
