@@ -54,12 +54,12 @@ const PurchaseToken = () => {
       >
         Purchase Using Token
       </button>
-      <button
+      {/* <button
         onClick={checkOut}
         className="bg-zinc-500 rounded-md py-2 px-4 hover:text-white hover:bg-black ease-in-out duration-300"
       >
         Purchase using Paywall
-      </button>
+      </button> */}
     </div>
   );
 };
