@@ -2,11 +2,11 @@ import React from "react";
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
 import PurchaseToken from "./PurchaseToken";
-import { goerliAddress } from "../configurations/config";
+import { binanceAddress, goerliAddress } from "../configurations/config";
 
 const BalanceOf = () => {
   const address = useAddress();
-  const { contract } = useContract(goerliAddress);
+  const { contract } = useContract(binanceAddress);
   const { data, isLoading } = useContractRead(contract, "balanceOf", [address]);
   return (
     <div className="text-center flex flex-col justify-center items-center">

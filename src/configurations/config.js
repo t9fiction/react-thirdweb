@@ -1,7 +1,7 @@
 export const paywallConfig = {
     "locks": {
-        "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0": {
-            'network': 5,
+        "0x726bD6B7e3a0f4e3Ef69597dDBB5eCF4e4c7f558": {
+            'network': 56,
             'name': "My Membership"
         }
     },
@@ -12,4 +12,4 @@ export const paywallConfig = {
 }
 
 export const goerliAddress = "0x9ADe6Ed97678fe17D9f0277A7351D7aE698109d0";
-export const binanceAddress = "0xF19F3Eef84CfB45C8a1eD8d3dBBa9842e1407da0"
+export const binanceAddress = "0x726bD6B7e3a0f4e3Ef69597dDBB5eCF4e4c7f558"

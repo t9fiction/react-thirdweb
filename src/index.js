@@ -4,17 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
-import { goerliAddress } from "./configurations/config";
+import { binanceAddress, goerliAddress } from "./configurations/config";
 
 function Component() {
-  const { contract, isLoading } = useContract(goerliAddress);
+  const { contract, isLoading } = useContract(binanceAddress);
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThirdwebProvider
-      activeChain="goerli"
+      activeChain="binance"
       clientId="0cde6a874bb767cdcbf735bc99865f86"
     >
       <App />

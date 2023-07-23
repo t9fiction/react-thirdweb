@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useContract, useContractRead } from "@thirdweb-dev/react";
 import { useAddress } from "@thirdweb-dev/react";
-import { goerliAddress } from "../configurations/config";
+import { binanceAddress } from "../configurations/config";
 
 const ExpirationTime = () => {
   const [expTime, setExpTime] = useState();
   const address = useAddress();
   const [tokenId, setTokenId] = useState();
-  const { contract } = useContract(goerliAddress);
+  const { contract } = useContract(binanceAddress);
   const { data, isLoading } = useContractRead(
     contract,
     "keyExpirationTimestampFor",

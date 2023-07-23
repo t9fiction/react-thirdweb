@@ -3,11 +3,12 @@ import { useContract, useContractWrite } from "@thirdweb-dev/react";
 import { useAddress, useSigner } from "@thirdweb-dev/react";
 import Paywall from "@unlock-protocol/paywall";
 import networks from "@unlock-protocol/networks";
-import { goerliAddress, paywallConfig } from "../configurations/config";
+import { binanceAddress, goerliAddress, paywallConfig } from "../configurations/config";
+import { ethers } from "ethers";
 
 const PurchaseToken = () => {
   const address = useAddress();
-  const { contract } = useContract(goerliAddress);
+  const { contract } = useContract(binanceAddress);
 
   const signer = useSigner();
   // const provider = signer.provider;
@@ -18,7 +19,7 @@ const PurchaseToken = () => {
     "purchase"
   );
 
-  const _values = ["50000000000000000000"];
+  const _values = ["0"];
   const _recipients = [address];
   const _referrers = [address];
   const _keyManagers = [address];
@@ -28,6 +29,10 @@ const PurchaseToken = () => {
     try {
       const data = await purchase({
         args: [_values, _recipients, _referrers, _keyManagers, _data],
+        overrides: {
+          gasLimit: 1000000, // override default gas limit
+          value: ethers.utils.parseEther("0.001"), // send 0.1 native token with the contract call
+        },
       });
       if (data) {
         // Display the message with the received data
