@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
-import { binanceAddress, goerliAddress } from "./configurations/config";
+import { aprilAddress, binanceAddress, goerliAddress } from "./configurations/config";
 
 function Component() {
-  const { contract, isLoading } = useContract(binanceAddress);
+  const { contract, isLoading } = useContract(binanceAddress, aprilAddress);
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
