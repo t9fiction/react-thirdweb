@@ -18,7 +18,7 @@ const PurchaseToken = () => {
 
   const { mutateAsync: purchase } = useContractWrite(contract, "purchase");
 
-  const _values = ["0"];
+  const _values = ["50000000000000000000"];
   const _recipients = [address];
   const _referrers = [address];
   const _keyManagers = [address];
@@ -28,10 +28,6 @@ const PurchaseToken = () => {
     try {
       const data = await purchase({
         args: [_values, _recipients, _referrers, _keyManagers, _data],
-        overrides: {
-          gasLimit: 1000000, // override default gas limit
-          value: ethers.utils.parseEther("0.001"), // send 0.1 native token with the contract call
-        },
       });
       if (data) {
         // Display the message with the received data
@@ -41,6 +37,23 @@ const PurchaseToken = () => {
       alert("contract call failure", err);
     }
   };
+  // const pruchaseCall = async () => {
+  //   try {
+  //     const data = await purchase({
+  //       args: [_values, _recipients, _referrers, _keyManagers, _data],
+  //       overrides: {
+  //         gasLimit: 1000000, // override default gas limit
+  //         value: ethers.utils.parseEther("0.001"), // send 0.1 native token with the contract call
+  //       },
+  //     });
+  //     if (data) {
+  //       // Display the message with the received data
+  //       alert("Membership Purchased");
+  //     }
+  //   } catch (err) {
+  //     alert("contract call failure", err);
+  //   }
+  // };
 
 
   const checkOut = async () => {

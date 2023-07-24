@@ -1,6 +1,6 @@
 import React from "react";
 import { useContract, useContractWrite } from "@thirdweb-dev/react";
-import { aprilAddress } from "../configurations/config";
+import { aprilAddress, binanceAddress } from "../configurations/config";
 import { useAddress } from "@thirdweb-dev/react";
 
 export default function useCall() {
@@ -10,7 +10,7 @@ export default function useCall() {
   
     const call = React.useCallback(async () => {
       try {
-        const data = await approve({ args: [address, 50] })
+        const data = await approve({ args: [binanceAddress, 50] })
         console.info("contract call successs", data);
       } catch (err) {
         console.error("contract call failure", err);
