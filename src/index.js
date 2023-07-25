@@ -8,6 +8,7 @@ import { aprilAddress, binanceAddress, goerliAddress } from "./configurations/co
 
 function Component() {
   const { contract, isLoading } = useContract(binanceAddress, aprilAddress);
+  console.log(process.env.CLIENT_ID)
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +16,7 @@ root.render(
   <React.StrictMode>
     <ThirdwebProvider
       activeChain="binance"
-      clientId="0cde6a874bb767cdcbf735bc99865f86"
+      clientId='0cde6a874bb767cdcbf735bc99865f86' //Enter the clientID from the thirdweb dashboard
     >
       <App />
       <Component />
