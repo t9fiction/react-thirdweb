@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useContract, useContractRead } from "@thirdweb-dev/react";
-import { useAddress } from "@thirdweb-dev/react";
-import { binanceAddress } from "../configurations/config";
+import React, { useEffect, useState } from 'react';
+import { useContract, useContractRead } from '@thirdweb-dev/react';
+import { useAddress } from '@thirdweb-dev/react';
+import { binanceAddress, binanceAddressmine } from '../configurations/config';
+import useCall from './getTokenId';
 
 const ExpirationTime = () => {
   const [expTime, setExpTime] = useState();
@@ -10,40 +11,36 @@ const ExpirationTime = () => {
   const { contract } = useContract(binanceAddress);
   const { data, isLoading } = useContractRead(
     contract,
-    "keyExpirationTimestampFor",
+    'keyExpirationTimestampFor',
     [tokenId]
   );
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    let inputValue = e.target.value;
-    console.log(inputValue, "inputValue");
-    setTokenId(inputValue);
-  };
-
+  const tokenIDofOwner = useCall();
+  const tokeninString = tokenIDofOwner?.toString()
+  
   useEffect(() => {
+    setTokenId(tokeninString);
     const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
     setExpTime(isTime);
-    console.log(isTime, "isTime");
-    if (isTime === "Jan 01 1970") {
-      setExpTime("Not a Valid Token");
+    console.log(isTime, 'isTime');
+    if (isTime === 'Jan 01 1970') {
+      setExpTime('Not a Member');
     }
-    if (isTime === "lid Date") {
-      setExpTime("Enter a Token");
+    if (isTime === 'lid Date') {
+      setExpTime('Not a Member');
     }
-  }, [data]);
+  }, [data,tokeninString]);
 
   // const expTime = data?.toString();
   return (
     <div className="py-6">
-      <h2 className="text-xl font-bold">Token Expiration Time</h2>{" "}
-      <h3>Enter TokenID : </h3>
-      <input onChange={handleChange} />
+      <h2 className="text-xl font-bold">Token Expiration Time</h2>{' '}
+      {/* <h3>Enter TokenID : </h3> */}
       {!isLoading &&
-        (expTime !== "0" ? (
+        (expTime !== '0' ? (
           <p>
             <span className="font-semibold text-lg">ExpirationTime : </span>
-            {expTime}{" "}
+            {expTime}{' '}
           </p>
         ) : (
           <>
