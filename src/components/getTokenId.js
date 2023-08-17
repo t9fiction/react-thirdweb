@@ -4,7 +4,7 @@ import {
   useContractWrite,
   useContractRead,
 } from '@thirdweb-dev/react';
-import { binanceAddress, binanceAddressmine } from '../configurations/config';
+import { binanceAddress } from '../configurations/config';
 import { useAddress } from '@thirdweb-dev/react';
 
 export default function useCall() {

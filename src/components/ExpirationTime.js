@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useContract, useContractRead } from '@thirdweb-dev/react';
 import { useAddress } from '@thirdweb-dev/react';
-import { binanceAddress, binanceAddressmine } from '../configurations/config';
+import { binanceAddress } from '../configurations/config';
 import useCall from './getTokenId';
 
 const ExpirationTime = () => {
