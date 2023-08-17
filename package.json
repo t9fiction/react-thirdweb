@@ -12,6 +12,7 @@
     "@unlock-protocol/paywall": "^0.6.6",
     "assert": "^2.0.0",
     "ethers": "^5.7.2",
+    "is-ethereum-address": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
