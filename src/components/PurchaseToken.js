@@ -3,13 +3,13 @@ import { useContract, useContractWrite } from '@thirdweb-dev/react';
 import { useAddress, useSigner } from '@thirdweb-dev/react';
 import Paywall from '@unlock-protocol/paywall';
 import networks from '@unlock-protocol/networks';
-import { binanceAddress, paywallConfig } from '../configurations/config';
+import { binance24address, paywallConfig } from '../configurations/config';
 import { ethers } from 'ethers';
 import useCall from './useCall';
 
 const PurchaseToken = () => {
   const address = useAddress();
-  const { contract } = useContract(binanceAddress);
+  const { contract } = useContract(binance24address);
   const approveCall = useCall();
   const [referrer, setReferrer] = useState('');
 

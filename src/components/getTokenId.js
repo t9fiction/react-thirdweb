@@ -4,11 +4,11 @@ import {
   useContractWrite,
   useContractRead,
 } from '@thirdweb-dev/react';
-import { binanceAddress } from '../configurations/config';
+import { binance24address } from '../configurations/config';
 import { useAddress } from '@thirdweb-dev/react';
 
 export default function useCall() {
-  const { contract } = useContract(binanceAddress);
+  const { contract } = useContract(binance24address);
   const address = useAddress();
   const _index = 0;
 

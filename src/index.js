@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
-import { aprilAddress, binanceAddress, goerliAddress } from "./configurations/config";
+import { aprilAddress, binance24address, binanceAddress, goerli24, goerliAddress } from "./configurations/config";
 
 function Component() {
-  const { contract, isLoading } = useContract(binanceAddress, aprilAddress);
+  const { contract, isLoading } = useContract(binance24address);
   console.log(process.env.CLIENT_ID)
 }
 

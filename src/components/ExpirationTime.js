@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useContract, useContractRead } from '@thirdweb-dev/react';
 import { useAddress } from '@thirdweb-dev/react';
-import { binanceAddress } from '../configurations/config';
+import { binance24address } from '../configurations/config';
 import useCall from './getTokenId';
 
 const ExpirationTime = () => {
   const [expTime, setExpTime] = useState();
   const address = useAddress();
   const [tokenId, setTokenId] = useState();
-  const { contract } = useContract(binanceAddress);
+  const { contract } = useContract(binance24address);
   const { data, isLoading } = useContractRead(
     contract,
     'keyExpirationTimestampFor',
@@ -20,7 +20,8 @@ const ExpirationTime = () => {
   
   useEffect(() => {
     setTokenId(tokeninString);
-    const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
+    // const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
+    const isTime = new Date(data).toString().slice(4, 15);
     setExpTime(isTime);
     console.log(isTime, 'isTime');
     if (isTime === 'Jan 01 1970') {
