@@ -19,9 +19,10 @@ const ExpirationTime = () => {
   const tokeninString = tokenIDofOwner?.toString()
   
   useEffect(() => {
-    setTokenId(tokeninString);
-    // const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
-    const isTime = new Date(data).toString().slice(4, 15);
+    // setTokenId(tokeninString);
+    setTokenId('2');
+    const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
+    // const isTime = new Date(data).toString().slice(4, 15);
     setExpTime(isTime);
     console.log(isTime, 'isTime');
     if (isTime === 'Jan 01 1970') {
