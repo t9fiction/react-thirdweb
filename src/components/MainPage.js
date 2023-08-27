@@ -4,6 +4,7 @@ import BalanceOf from "./BalanceOf";
 import { useAddress } from "@thirdweb-dev/react";
 import { useChainId } from "@thirdweb-dev/react";
 import RenewMembership from './RenewMembership';
+import ApprovalFor from './ApprovalFor';
 
 const MainPage = () => {
   const address = useAddress();
@@ -16,6 +17,7 @@ const MainPage = () => {
             <BalanceOf />
             <ExpirationTime />
             <RenewMembership />
+            <ApprovalFor />
           </>
         ) : (
           <p className="font-semibold text-lg">

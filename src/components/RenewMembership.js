@@ -3,6 +3,7 @@ import { useContract, useContractWrite } from '@thirdweb-dev/react';
 import { aprilAddress, binance24address } from '../configurations/config';
 import { useAddress } from '@thirdweb-dev/react';
 import useCallTokenId from './getTokenId';
+import useIsRenewable from './isRenewable';
 
 const RenewMembership = () => {
   const { contract } = useContract(binance24address);
@@ -11,32 +12,36 @@ const RenewMembership = () => {
   // Argument Values
   const _value = '50000000000000000000';
   const _referrer = address;
-  const _data = [0];
   const _tokenId = useCallTokenId();
   console.log(_tokenId, 'tokenID');
-  const { mutateAsync: extend, isLoading } = useContractWrite(
+  const { mutateAsync: renewMembershipFor, isLoading } = useContractWrite(
     contract,
-    'extend'
-  );
+    'renewMembershipFor'
+    );
+    const isRenewable = useIsRenewable({_tokenId, _referrer})  
+    // const { mutateAsync: extend, isLoading } = useContractWrite(
+      //   contract,
+      //   'extend'
+      // );
 
   const call = async () => {
     try {
-      const data = await extend({ args: [_value, _tokenId, _referrer, _data] });
+      const data = await renewMembershipFor({ args: [_tokenId, _referrer] });
       console.info('contract call successs', data);
     } catch (err) {
       console.error('contract call failure', err);
     }
   };
 
-  return (
-    <>
-      <div>RenewMembership</div>
+  // return (
+  //   <>
+  //     <div>Approval</div>
 
-      <button onClick={call} className="bg-slate-700 py-2 px-4 rounded-md">
-        Renew Membership
-      </button>
-    </>
-  );
+  //     <button onClick={''} className="bg-slate-700 py-2 px-4 rounded-md">
+  //       Approval
+  //     </button>
+  //   </>
+  // );
 };
 
 export default RenewMembership;

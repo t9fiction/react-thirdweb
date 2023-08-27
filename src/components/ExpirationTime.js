@@ -21,11 +21,11 @@ const ExpirationTime = () => {
   useEffect(() => {
     // setTokenId(tokeninString);
     setTokenId('2');
-    const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 15);
+    const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 21);
     // const isTime = new Date(data).toString().slice(4, 15);
     setExpTime(isTime);
     console.log(isTime, 'isTime');
-    if (isTime === 'Jan 01 1970') {
+    if (isTime.includes('Jan 01 1970')) {
       setExpTime('Not a Member');
     }
     if (isTime === 'lid Date') {
