@@ -38,7 +38,7 @@ const RenewMembership = () => {
       <div>Renew Membership</div>
 
       <button onClick={call} className="bg-slate-700 py-2 px-4 rounded-md">
-        Approval
+        Renew
       </button>
     </>
   );
