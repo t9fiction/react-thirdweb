@@ -8,6 +8,7 @@ const BalanceOf = () => {
   const address = useAddress();
   const { contract } = useContract(binance24address);
   const { data, isLoading } = useContractRead(contract, "balanceOf", [address]);
+  console.log(data,"data")
   return (
     <div className="text-center flex flex-col justify-center items-center">
       <h1 className="font-bold text-xl py-2">Membership Function</h1>

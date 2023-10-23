@@ -16,6 +16,7 @@ export default function useCall() {
     address,
     _index,
   ]);
+  console.log(data,"tokenid")
 
   return data;
 }

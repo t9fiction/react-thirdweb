@@ -10,7 +10,7 @@ export default function useCall() {
   
     const call = React.useCallback(async () => {
       try {
-        const data = await approve({ args: [binance24address, 150] })
+        const data = await approve({ args: [binance24address, 150000000000000000000] })
         console.info("contract call successs", data);
       } catch (err) {
         console.error("contract call failure", err);

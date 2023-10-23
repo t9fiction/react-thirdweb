@@ -10,7 +10,6 @@ const RenewMembership = () => {
   const address = useAddress();
 
   // Argument Values
-  const _value = '50000000000000000000';
   const _referrer = address;
   const _tokenId = useCallTokenId();
   console.log(_tokenId, 'tokenID');
@@ -18,7 +17,7 @@ const RenewMembership = () => {
     contract,
     'renewMembershipFor'
     );
-    const isRenewable = useIsRenewable({_tokenId, _referrer})  
+    // const isRenewable = useIsRenewable({_tokenId, _referrer})  
     // const { mutateAsync: extend, isLoading } = useContractWrite(
       //   contract,
       //   'extend'
@@ -33,15 +32,15 @@ const RenewMembership = () => {
     }
   };
 
-  // return (
-  //   <>
-  //     <div>Approval</div>
+  return (
+    <>
+      <div>Renew Membership</div>
 
-  //     <button onClick={''} className="bg-slate-700 py-2 px-4 rounded-md">
-  //       Approval
-  //     </button>
-  //   </>
-  // );
+      <button onClick={call} className="bg-slate-700 py-2 px-4 rounded-md">
+        Renew Membership
+      </button>
+    </>
+  );
 };
 
 export default RenewMembership;

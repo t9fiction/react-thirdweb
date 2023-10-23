@@ -16,8 +16,8 @@ const MainPage = () => {
           <>
             <BalanceOf />
             <ExpirationTime />
-            <RenewMembership />
             <ApprovalFor />
+            <RenewMembership />
           </>
         ) : (
           <p className="font-semibold text-lg">

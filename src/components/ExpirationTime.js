@@ -20,7 +20,7 @@ const ExpirationTime = () => {
   
   useEffect(() => {
     // setTokenId(tokeninString);
-    setTokenId('2');
+    setTokenId(tokeninString);
     const isTime = new Date(data?.toNumber() * 1000).toString().slice(4, 21);
     // const isTime = new Date(data).toString().slice(4, 15);
     setExpTime(isTime);
