@@ -16,13 +16,14 @@ const RenewMembership = () => {
   const { mutateAsync: renewMembershipFor, isLoading } = useContractWrite(
     contract,
     'renewMembershipFor'
-    );
-    // const isRenewable = useIsRenewable({_tokenId, _referrer})  
-    // const { mutateAsync: extend, isLoading } = useContractWrite(
-      //   contract,
-      //   'extend'
-      // );
+  );
+  // const isRenewable = useIsRenewable({_tokenId, _referrer})
+  // const { mutateAsync: extend, isLoading } = useContractWrite(
+  //   contract,
+  //   'extend'
+  // );
 
+  console.log(renewMembershipFor,"renewmembership")
   const call = async () => {
     try {
       const data = await renewMembershipFor({ args: [_tokenId, _referrer] });
@@ -36,10 +37,10 @@ const RenewMembership = () => {
     <>
       <div>Renew Membership</div>
 
-  //     <button onClick={''} className="bg-slate-700 py-2 px-4 rounded-md">
-  //       Approval
-  //     </button>
-  //   </>
+      <button onClick={call} className="bg-slate-700 py-2 px-4 rounded-md">
+        Approval
+      </button>
+    </>
   );
 };
 

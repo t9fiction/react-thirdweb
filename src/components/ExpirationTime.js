@@ -17,6 +17,7 @@ const ExpirationTime = () => {
 
   const tokenIDofOwner = useCall();
   const tokeninString = tokenIDofOwner?.toString()
+  console.log(tokenIDofOwner,"tokenIDofOwner")
   
   useEffect(() => {
     // setTokenId(tokeninString);
