@@ -33,15 +33,15 @@ const RenewMembership = () => {
     }
   };
 
-  // return (
-  //   <>
-  //     <div>Approval</div>
+  return (
+    <>
+      <div>Renew Membership</div>
 
-  //     <button onClick={''} className="bg-slate-700 py-2 px-4 rounded-md">
-  //       Approval
-  //     </button>
-  //   </>
-  // );
+      <button onClick={call} className="bg-slate-700 py-2 px-4 rounded-md">
+        Renew
+      </button>
+    </>
+  );
 };
 
 export default RenewMembership;
